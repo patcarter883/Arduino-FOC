@@ -221,6 +221,9 @@ class FOCMotor
     Direction sensor_direction = Direction::UNKNOWN; //!< default is CW. if sensor_direction == Direction::CCW then direction will be flipped compared to CW. Set to UNKNOWN to set by calibration
     bool pp_check_result = false; //!< the result of the PP check, if run during loopFOC
 
+    // pwm deadtime compensation
+    float deadtime_compensation = 0;
+ 
     /**
      * Function providing BLDCMotor class with the 
      * Serial interface and enabling monitoring mode
