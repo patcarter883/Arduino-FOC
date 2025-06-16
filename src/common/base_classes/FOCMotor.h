@@ -78,7 +78,7 @@ class FOCMotor
     FOCMotor();
 
     /**  Motor hardware init function */
-  	virtual void init()=0;
+  	virtual int init()=0;
     /** Motor disable function */
   	virtual void disable()=0;
     /** Motor enable function */
@@ -149,6 +149,15 @@ class FOCMotor
      */
     float electricalAngle();
 
+    /**
+     * Measure resistance and inductance of a motor and print results to debug.
+     * If a sensor is available, an estimate of zero electric angle will be reported too.
+     * @param voltage The voltage applied to the motor
+     * @param correction_factor  Is 1.5 for 3 phase motors, because we measure over a series-parallel connection. TODO: what about 2 phase motors?
+     * @returns 0 for success, >0 for failure
+     */
+    int characteriseMotor(float voltage, float correction_factor);
+
     // state variables
     float target; //!< current target value - depends of the controller
     float feed_forward_velocity = 0.0f; //!< current feed forward velocity
@@ -160,7 +169,12 @@ class FOCMotor
     float shaft_angle_sp;//!< current target angle
     DQVoltage_s voltage;//!< current d and q voltage set to the motor
     DQCurrent_s current;//!< current d and q current measured
+    DQCurrent_s current_raw;//!< current d and q current measured (unfiltered)
     float voltage_bemf; //!< estimated backemf voltage (if provided KV constant)
+    float	Ualpha, Ubeta; //!< Phase voltages U alpha and U beta used for inverse Park and Clarke transform
+
+    DQCurrent_s feed_forward_current;//!< current d and q current measured
+    DQVoltage_s feed_forward_voltage;//!< current d and q voltage set to the motor
 
     // motor configuration parameters
     float voltage_sensor_align;//!< sensor and motor align voltage parameter
@@ -208,6 +222,9 @@ class FOCMotor
     Direction sensor_direction = Direction::UNKNOWN; //!< default is CW. if sensor_direction == Direction::CCW then direction will be flipped compared to CW. Set to UNKNOWN to set by calibration
     bool pp_check_result = false; //!< the result of the PP check, if run during loopFOC
 
+    // pwm deadtime compensation
+    float deadtime_compensation = 0;
+ 
     /**
      * Function providing BLDCMotor class with the 
      * Serial interface and enabling monitoring mode

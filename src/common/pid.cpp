@@ -9,6 +9,7 @@ PIDController::PIDController(float P, float I, float D, float ramp, float limit)
     , error_prev(0.0f)
     , output_prev(0.0f)
     , integral_prev(0.0f)
+    , feedforward(0.0f)
 {
     timestamp_prev = _micros();
 }
@@ -31,12 +32,20 @@ float PIDController::operator() (float error){
     float integral = integral_prev + I*Ts*0.5f*(error + error_prev);
     // antiwindup - limit the output
     integral = _constrain(integral, -limit, limit);
+    
+    // sum all the components
+    float output = proportional + integral;
+
     // Discrete derivation
     // u_dk = D(ek - ek_1)/Ts
-    float derivative = D*(error - error_prev)/Ts;
+    if (D) output += D*(error - error_prev)/Ts;
 
-    // sum all the components
-    float output = proportional + integral + derivative;
+    // Add feedforward term
+    if (feedforward){
+        output += feedforward;
+        feedforward = 0.0f; // reset it as it might be incremented by other functions
+    }
+
     // antiwindup - limit the output variable
     output = _constrain(output, -limit, limit);
 
