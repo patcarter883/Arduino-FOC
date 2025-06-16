@@ -35,7 +35,7 @@ class CurrentSense{
     bool initialized = false; // true if current sense was successfully initialized   
     void* params = 0; //!< pointer to hardware specific parameters of current sensing
     DriverType driver_type = DriverType::UnknownDriver; //!< driver type (BLDC or Stepper)
-    
+    PhaseCurrent_s phase_currents;
     
     // ADC measurement gain for each phase
     // support for different gains for different phases of more commonly - inverted phase currents

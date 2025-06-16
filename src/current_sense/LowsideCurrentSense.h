@@ -37,6 +37,7 @@ class LowsideCurrentSense: public CurrentSense{
     int init() override;
     PhaseCurrent_s getPhaseCurrents() override;
 
+
   private:
 
     // gain variables
