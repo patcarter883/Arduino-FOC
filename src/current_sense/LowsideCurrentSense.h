@@ -36,7 +36,7 @@ class LowsideCurrentSense: public CurrentSense{
     // CurrentSense interface implementing functions
     int init() override;
     PhaseCurrent_s getPhaseCurrents() override;
-
+    PhaseCurrent_s phase_currents;
 
   private:
 

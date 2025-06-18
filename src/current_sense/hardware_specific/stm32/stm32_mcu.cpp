@@ -5,9 +5,12 @@
 
 #include "stm32_mcu.h"
 
+#ifndef _ADC_VOLTAGE
 #define _ADC_VOLTAGE 3.3f
+#endif
+#ifndef _ADC_RESOLUTION
 #define _ADC_RESOLUTION 4096.0f
-
+#endif
 #ifdef SIMPLEFOC_STM32_ADC_INTERRUPT
 uint8_t stm32_use_adc_interrupt = 1;
 #else
@@ -107,19 +110,19 @@ int _adc_init(Stm32CurrentSenseParams* cs_params, const STM32DriverParams* drive
 
   // automating TRGO flag finding - hardware specific
   uint8_t tim_num = 0;
-  while(driver_params->timers[tim_num] != NP && tim_num < 6){
+  while(driver_params->timers_handle[tim_num] != NP && tim_num < 6){
     #if defined(ADC_INJECTED_SOFTWARE_START)
     // Injected ADC is available
-    cs_params->inj_trigger = _timerToInjectedTRGO(driver_params->timers[tim_num++]);
+    cs_params->inj_trigger = _timerToInjectedTRGO(driver_params->timers_handle[tim_num++]);
     if(cs_params->inj_trigger == _TRGO_NOT_AVAILABLE) continue; // timer does not have valid trgo for injected channels
     #else
     // Injected ADC is not available, use regular ADC
-    cs_params->reg_trigger = _timerToRegularTRGO(driver_params->timers[tim_num++]);
+    cs_params->reg_trigger = _timerToRegularTRGO(driver_params->timers_handle[tim_num++]);
     if(cs_params->reg_trigger == _TRGO_NOT_AVAILABLE) continue; // timer does not have valid trgo for injected channels
     #endif
 
     // this will be the timer with which the ADC will sync
-    cs_params->timer_handle = driver_params->timers[tim_num-1];
+    cs_params->timer_handle = driver_params->timers_handle[tim_num-1];
     // done
     break;
   }
@@ -137,7 +140,7 @@ int _adc_init(Stm32CurrentSenseParams* cs_params, const STM32DriverParams* drive
   }
 
   cs_params->use_adc_interrupt = stm32_use_adc_interrupt;
-  if (!IS_TIM_REPETITION_COUNTER_INSTANCE(cs_params->timer_handle->getHandle()->Instance) && !cs_params->use_adc_interrupt){
+  if (!IS_TIM_REPETITION_COUNTER_INSTANCE(cs_params->timer_handle->Instance) && !cs_params->use_adc_interrupt){
     // With low side current sensing, if the timer has no repetition counter, it needs to use the interrupt to sample at V0 only 
     cs_params->use_adc_interrupt = 1;
     #ifdef SIMPLEFOC_STM32_DEBUG
@@ -174,34 +177,36 @@ int _adc_init(Stm32CurrentSenseParams* cs_params, const STM32DriverParams* drive
   return 0;
 }
 
-void _driverSyncLowSide(void* _driver_params, void* _cs_params){
+void* _driverSyncLowSide(void* _driver_params, void* _cs_params){
   STM32DriverParams* driver_params = (STM32DriverParams*)_driver_params;
   Stm32CurrentSenseParams* cs_params = (Stm32CurrentSenseParams*)_cs_params;
  
   // if compatible timer has not been found
-  if (cs_params->timer_handle == NULL) return;
+  if (cs_params->timer_handle == NULL) return SIMPLEFOC_CURRENT_SENSE_INIT_FAILED;
   
   // stop all the timers for the driver
-  _stopTimers(driver_params->timers, 6);
+  stm32_pause(driver_params);
 
   // if timer has repetition counter - it will downsample using it
   // and it does not need the software downsample
-  if( IS_TIM_REPETITION_COUNTER_INSTANCE(cs_params->timer_handle->getHandle()->Instance) ){
+  if( IS_TIM_REPETITION_COUNTER_INSTANCE(cs_params->timer_handle->Instance) ){
     // adjust the initial timer state such that the trigger 
     //   - for DMA transfer aligns with the pwm peaks instead of throughs.
     //   - for interrupt based ADC transfer 
     //   - only necessary for the timers that have repetition counters
-    cs_params->timer_handle->getHandle()->Instance->CR1 |= TIM_CR1_DIR;
-    cs_params->timer_handle->getHandle()->Instance->CNT =  cs_params->timer_handle->getHandle()->Instance->ARR;
+    cs_params->timer_handle->Instance->CR1 |= TIM_CR1_DIR;
+    cs_params->timer_handle->Instance->CNT =  cs_params->timer_handle->Instance->ARR;
   }
   
   // set the trigger output event
-  LL_TIM_SetTriggerOutput(cs_params->timer_handle->getHandle()->Instance, LL_TIM_TRGO_UPDATE);
+  LL_TIM_SetTriggerOutput(cs_params->timer_handle->Instance, LL_TIM_TRGO_UPDATE);
  
   _start_ADCs(cs_params);
 
   // restart all the timers of the driver
-  _startTimers(driver_params->timers, 6);
+  stm32_resume(driver_params);
+
+  return _cs_params;
 }
 
 // function reading an ADC value and returning the read voltage
@@ -219,6 +224,7 @@ extern "C" {
   #ifdef ADC_INJECTED_SOFTWARE_START
   void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef *AdcHandle){   
     _buffer_ADCs(); // fill the ADC buffer
+    __adc_read_complete_cb();
   }
   #endif
 }

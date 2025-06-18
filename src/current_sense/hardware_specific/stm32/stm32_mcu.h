@@ -32,13 +32,15 @@ typedef struct Stm32CurrentSenseParams {
   int samples[3] = {NP,NP,NP};
   uint32_t inj_trigger = NP;
   uint32_t reg_trigger = NP;
-  HardwareTimer* timer_handle = NP;
+  TIM_HandleTypeDef* timer_handle = NP;
   current_sense_type type;
   uint8_t use_adc_interrupt = NP;
 } Stm32CurrentSenseParams;
 
 int _adc_init(Stm32CurrentSenseParams* cs_params, const STM32DriverParams* driver_params);
 void _adc_gpio_init(Stm32CurrentSenseParams* cs_params, const int pinA, const int pinB, const int pinC);
+
+extern void __adc_read_complete_cb();
 
 #endif
 #endif

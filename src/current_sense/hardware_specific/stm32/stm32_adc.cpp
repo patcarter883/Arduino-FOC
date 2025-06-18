@@ -531,8 +531,7 @@ void _buffer_ADCs(){
     if (ADCEngine.samples[i].buffered){
       if (ADCEngine.samples[i].cs_params != nullptr){
         Stm32CurrentSenseParams* cs_params = (Stm32CurrentSenseParams*)ADCEngine.samples[i].cs_params;
-          HardwareTimer* pHT = cs_params->timer_handle;
-          TIM_HandleTypeDef* htim = pHT->getHandle();
+          TIM_HandleTypeDef* htim = cs_params->timer_handle;
           bool dir = __HAL_TIM_IS_TIM_COUNTING_DOWN(htim);
         // Only buffer adc value if Timer is downcounting  
         if (dir) ADCEngine.samples[i].buffer = _read_ADC_register(i);

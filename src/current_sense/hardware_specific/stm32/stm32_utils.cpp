@@ -6,184 +6,184 @@
 #ifdef ADC_INJECTED_SOFTWARE_START
 
 // timer to injected TRGO
-uint32_t _timerToInjectedTRGO(HardwareTimer* timer){
+uint32_t _timerToInjectedTRGO(TIM_HandleTypeDef* timer){
 
   // This should work with F1 F2 F3 F4 F7
 #if defined(ADC_EXTERNALTRIGINJECCONV_T1_TRGO) && defined(TIM1)
-  if(timer->getHandle()->Instance == TIM1) return ADC_EXTERNALTRIGINJECCONV_T1_TRGO;
+  if(timer->Instance == TIM1) return ADC_EXTERNALTRIGINJECCONV_T1_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T2_TRGO) && defined(TIM2)
-  if(timer->getHandle()->Instance == TIM2) return ADC_EXTERNALTRIGINJECCONV_T2_TRGO;
+  if(timer->Instance == TIM2) return ADC_EXTERNALTRIGINJECCONV_T2_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T3_TRGO) && defined(TIM3)
-  if(timer->getHandle()->Instance == TIM3) return ADC_EXTERNALTRIGINJECCONV_T3_TRGO;
+  if(timer->Instance == TIM3) return ADC_EXTERNALTRIGINJECCONV_T3_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T4_TRGO) && defined(TIM4)
-  if(timer->getHandle()->Instance == TIM4) return ADC_EXTERNALTRIGINJECCONV_T4_TRGO;
+  if(timer->Instance == TIM4) return ADC_EXTERNALTRIGINJECCONV_T4_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T5_TRGO) && defined(TIM5)
-  if(timer->getHandle()->Instance == TIM5) return ADC_EXTERNALTRIGINJECCONV_T5_TRGO;
+  if(timer->Instance == TIM5) return ADC_EXTERNALTRIGINJECCONV_T5_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T6_TRGO) && defined(TIM6)
-  if(timer->getHandle()->Instance == TIM6) return ADC_EXTERNALTRIGINJECCONV_T6_TRGO;
+  if(timer->Instance == TIM6) return ADC_EXTERNALTRIGINJECCONV_T6_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T7_TRGO) && defined(TIM7)
-  if(timer->getHandle()->Instance == TIM7) return ADC_EXTERNALTRIGINJECCONV_T7_TRGO;
+  if(timer->Instance == TIM7) return ADC_EXTERNALTRIGINJECCONV_T7_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T8_TRGO) && defined(TIM8)
-  if(timer->getHandle()->Instance == TIM8) return ADC_EXTERNALTRIGINJECCONV_T8_TRGO;
+  if(timer->Instance == TIM8) return ADC_EXTERNALTRIGINJECCONV_T8_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T9_TRGO) && defined(TIM9)
-  if(timer->getHandle()->Instance == TIM9) return ADC_EXTERNALTRIGINJECCONV_T9_TRGO;
+  if(timer->Instance == TIM9) return ADC_EXTERNALTRIGINJECCONV_T9_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T10_TRGO) && defined(TIM10)
-  if(timer->getHandle()->Instance == TIM10) return ADC_EXTERNALTRIGINJECCONV_T10_TRGO;
+  if(timer->Instance == TIM10) return ADC_EXTERNALTRIGINJECCONV_T10_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T11_TRGO) && defined(TIM11)
-  if(timer->getHandle()->Instance == TIM11) return ADC_EXTERNALTRIGINJECCONV_T11_TRGO;
+  if(timer->Instance == TIM11) return ADC_EXTERNALTRIGINJECCONV_T11_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T12_TRGO) && defined(TIM12)
-  if(timer->getHandle()->Instance == TIM12) return ADC_EXTERNALTRIGINJECCONV_T12_TRGO;
+  if(timer->Instance == TIM12) return ADC_EXTERNALTRIGINJECCONV_T12_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T13_TRGO) && defined(TIM13)
-  if(timer->getHandle()->Instance == TIM13) return ADC_EXTERNALTRIGINJECCONV_T13_TRGO;
+  if(timer->Instance == TIM13) return ADC_EXTERNALTRIGINJECCONV_T13_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T14_TRGO) && defined(TIM14)
-  if(timer->getHandle()->Instance == TIM14) return ADC_EXTERNALTRIGINJECCONV_T14_TRGO;
+  if(timer->Instance == TIM14) return ADC_EXTERNALTRIGINJECCONV_T14_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T15_TRGO) && defined(TIM15)
-  if(timer->getHandle()->Instance == TIM15) return ADC_EXTERNALTRIGINJECCONV_T15_TRGO;
+  if(timer->Instance == TIM15) return ADC_EXTERNALTRIGINJECCONV_T15_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T16_TRGO) && defined(TIM16)
-  if(timer->getHandle()->Instance == TIM16) return ADC_EXTERNALTRIGINJECCONV_T16_TRGO;
+  if(timer->Instance == TIM16) return ADC_EXTERNALTRIGINJECCONV_T16_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T17_TRGO) && defined(TIM17)
-  if(timer->getHandle()->Instance == TIM17) return ADC_EXTERNALTRIGINJECCONV_T17_TRGO;
+  if(timer->Instance == TIM17) return ADC_EXTERNALTRIGINJECCONV_T17_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T18_TRGO) && defined(TIM18)
-  if(timer->getHandle()->Instance == TIM18) return ADC_EXTERNALTRIGINJECCONV_T18_TRGO;
+  if(timer->Instance == TIM18) return ADC_EXTERNALTRIGINJECCONV_T18_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T19_TRGO) && defined(TIM19)
-  if(timer->getHandle()->Instance == TIM19) return ADC_EXTERNALTRIGINJECCONV_T19_TRGO;
+  if(timer->Instance == TIM19) return ADC_EXTERNALTRIGINJECCONV_T19_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJECCONV_T20_TRGO) && defined(TIM20)
-  if(timer->getHandle()->Instance == TIM20) return ADC_EXTERNALTRIGINJECCONV_T20_TRGO;
+  if(timer->Instance == TIM20) return ADC_EXTERNALTRIGINJECCONV_T20_TRGO;
 #endif
 
 // This should work with G4 H5 H7 L4 L5 MP1 U5 WB
 #if defined(ADC_EXTERNALTRIGINJEC_T1_TRGO) && defined(TIM1)
-  if(timer->getHandle()->Instance == TIM1) return ADC_EXTERNALTRIGINJEC_T1_TRGO;
+  if(timer->Instance == TIM1) return ADC_EXTERNALTRIGINJEC_T1_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T2_TRGO) && defined(TIM2)
-  if(timer->getHandle()->Instance == TIM2) return ADC_EXTERNALTRIGINJEC_T2_TRGO;
+  if(timer->Instance == TIM2) return ADC_EXTERNALTRIGINJEC_T2_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T3_TRGO) && defined(TIM3)
-  if(timer->getHandle()->Instance == TIM3) return ADC_EXTERNALTRIGINJEC_T3_TRGO;
+  if(timer->Instance == TIM3) return ADC_EXTERNALTRIGINJEC_T3_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T4_TRGO) && defined(TIM4)
-  if(timer->getHandle()->Instance == TIM4) return ADC_EXTERNALTRIGINJEC_T4_TRGO;
+  if(timer->Instance == TIM4) return ADC_EXTERNALTRIGINJEC_T4_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T5_TRGO) && defined(TIM5)
-  if(timer->getHandle()->Instance == TIM5) return ADC_EXTERNALTRIGINJEC_T5_TRGO;
+  if(timer->Instance == TIM5) return ADC_EXTERNALTRIGINJEC_T5_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T6_TRGO) && defined(TIM6)
-  if(timer->getHandle()->Instance == TIM6) return ADC_EXTERNALTRIGINJEC_T6_TRGO;
+  if(timer->Instance == TIM6) return ADC_EXTERNALTRIGINJEC_T6_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T7_TRGO) && defined(TIM7)
-  if(timer->getHandle()->Instance == TIM7) return ADC_EXTERNALTRIGINJEC_T7_TRGO;
+  if(timer->Instance == TIM7) return ADC_EXTERNALTRIGINJEC_T7_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T8_TRGO) && defined(TIM8)
-  if(timer->getHandle()->Instance == TIM8) return ADC_EXTERNALTRIGINJEC_T8_TRGO;
+  if(timer->Instance == TIM8) return ADC_EXTERNALTRIGINJEC_T8_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T9_TRGO) && defined(TIM9)
-  if(timer->getHandle()->Instance == TIM9) return ADC_EXTERNALTRIGINJEC_T9_TRGO;
+  if(timer->Instance == TIM9) return ADC_EXTERNALTRIGINJEC_T9_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T10_TRGO) && defined(TIM10)
-  if(timer->getHandle()->Instance == TIM10) return ADC_EXTERNALTRIGINJEC_T10_TRGO;
+  if(timer->Instance == TIM10) return ADC_EXTERNALTRIGINJEC_T10_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T11_TRGO) && defined(TIM11)
-  if(timer->getHandle()->Instance == TIM11) return ADC_EXTERNALTRIGINJEC_T11_TRGO;
+  if(timer->Instance == TIM11) return ADC_EXTERNALTRIGINJEC_T11_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T12_TRGO) && defined(TIM12)
-  if(timer->getHandle()->Instance == TIM12) return ADC_EXTERNALTRIGINJEC_T12_TRGO;
+  if(timer->Instance == TIM12) return ADC_EXTERNALTRIGINJEC_T12_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T13_TRGO) && defined(TIM13)
-  if(timer->getHandle()->Instance == TIM13) return ADC_EXTERNALTRIGINJEC_T13_TRGO;
+  if(timer->Instance == TIM13) return ADC_EXTERNALTRIGINJEC_T13_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T14_TRGO) && defined(TIM14)
-  if(timer->getHandle()->Instance == TIM14) return ADC_EXTERNALTRIGINJEC_T14_TRGO;
+  if(timer->Instance == TIM14) return ADC_EXTERNALTRIGINJEC_T14_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T15_TRGO) && defined(TIM15)
-  if(timer->getHandle()->Instance == TIM15) return ADC_EXTERNALTRIGINJEC_T15_TRGO;
+  if(timer->Instance == TIM15) return ADC_EXTERNALTRIGINJEC_T15_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T16_TRGO) && defined(TIM16)
-  if(timer->getHandle()->Instance == TIM16) return ADC_EXTERNALTRIGINJEC_T16_TRGO;
+  if(timer->Instance == TIM16) return ADC_EXTERNALTRIGINJEC_T16_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T17_TRGO) && defined(TIM17)
-  if(timer->getHandle()->Instance == TIM17) return ADC_EXTERNALTRIGINJEC_T17_TRGO;
+  if(timer->Instance == TIM17) return ADC_EXTERNALTRIGINJEC_T17_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T18_TRGO) && defined(TIM18)
-  if(timer->getHandle()->Instance == TIM18) return ADC_EXTERNALTRIGINJEC_T18_TRGO;
+  if(timer->Instance == TIM18) return ADC_EXTERNALTRIGINJEC_T18_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T19_TRGO) && defined(TIM19)
-  if(timer->getHandle()->Instance == TIM19) return ADC_EXTERNALTRIGINJEC_T19_TRGO;
+  if(timer->Instance == TIM19) return ADC_EXTERNALTRIGINJEC_T19_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T20_TRGO) && defined(TIM20)
-  if(timer->getHandle()->Instance == TIM20) return ADC_EXTERNALTRIGINJEC_T20_TRGO;
+  if(timer->Instance == TIM20) return ADC_EXTERNALTRIGINJEC_T20_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T21_TRGO) && defined(TIM21)
-  if(timer->getHandle()->Instance == TIM21) return ADC_EXTERNALTRIGINJEC_T21_TRGO;
+  if(timer->Instance == TIM21) return ADC_EXTERNALTRIGINJEC_T21_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T22_TRGO) && defined(TIM22)
-  if(timer->getHandle()->Instance == TIM22) return ADC_EXTERNALTRIGINJEC_T22_TRGO;
+  if(timer->Instance == TIM22) return ADC_EXTERNALTRIGINJEC_T22_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T23_TRGO) && defined(TIM23)
-  if(timer->getHandle()->Instance == TIM23) return ADC_EXTERNALTRIGINJEC_T23_TRGO;
+  if(timer->Instance == TIM23) return ADC_EXTERNALTRIGINJEC_T23_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGINJEC_T24_TRGO) && defined(TIM24)
-  if(timer->getHandle()->Instance == TIM24) return ADC_EXTERNALTRIGINJEC_T24_TRGO;
+  if(timer->Instance == TIM24) return ADC_EXTERNALTRIGINJEC_T24_TRGO;
 #endif
 
   // Return not available if no trigger was found, not that following families have no injected ADC : C0 F0 G0 L0 WL
@@ -209,184 +209,184 @@ uint32_t _getInjADCRank(int index)
 #endif
 
 // timer to regular TRGO
-uint32_t _timerToRegularTRGO(HardwareTimer* timer){
+uint32_t _timerToRegularTRGO(TIM_HandleTypeDef* timer){
 
   // This should work with F0 F1 F2 F3 F4 F7 L0
 #if defined(ADC_EXTERNALTRIGCONV_T1_TRGO) && defined(TIM1)
-  if(timer->getHandle()->Instance == TIM1) return ADC_EXTERNALTRIGCONV_T1_TRGO;
+  if(timer->Instance == TIM1) return ADC_EXTERNALTRIGCONV_T1_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T2_TRGO) && defined(TIM2)
-  if(timer->getHandle()->Instance == TIM2) return ADC_EXTERNALTRIGCONV_T2_TRGO;
+  if(timer->Instance == TIM2) return ADC_EXTERNALTRIGCONV_T2_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T3_TRGO) && defined(TIM3)
-  if(timer->getHandle()->Instance == TIM3) return ADC_EXTERNALTRIGCONV_T3_TRGO;
+  if(timer->Instance == TIM3) return ADC_EXTERNALTRIGCONV_T3_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T4_TRGO) && defined(TIM4)
-  if(timer->getHandle()->Instance == TIM4) return ADC_EXTERNALTRIGCONV_T4_TRGO;
+  if(timer->Instance == TIM4) return ADC_EXTERNALTRIGCONV_T4_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T5_TRGO) && defined(TIM5)
-  if(timer->getHandle()->Instance == TIM5) return ADC_EXTERNALTRIGCONV_T5_TRGO;
+  if(timer->Instance == TIM5) return ADC_EXTERNALTRIGCONV_T5_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T6_TRGO) && defined(TIM6)
-  if(timer->getHandle()->Instance == TIM6) return ADC_EXTERNALTRIGCONV_T6_TRGO;
+  if(timer->Instance == TIM6) return ADC_EXTERNALTRIGCONV_T6_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T7_TRGO) && defined(TIM7)
-  if(timer->getHandle()->Instance == TIM7) return ADC_EXTERNALTRIGCONV_T7_TRGO;
+  if(timer->Instance == TIM7) return ADC_EXTERNALTRIGCONV_T7_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T8_TRGO) && defined(TIM8)
-  if(timer->getHandle()->Instance == TIM8) return ADC_EXTERNALTRIGCONV_T8_TRGO;
+  if(timer->Instance == TIM8) return ADC_EXTERNALTRIGCONV_T8_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T9_TRGO) && defined(TIM9)
-  if(timer->getHandle()->Instance == TIM9) return ADC_EXTERNALTRIGCONV_T9_TRGO;
+  if(timer->Instance == TIM9) return ADC_EXTERNALTRIGCONV_T9_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T10_TRGO) && defined(TIM10)
-  if(timer->getHandle()->Instance == TIM10) return ADC_EXTERNALTRIGCONV_T10_TRGO;
+  if(timer->Instance == TIM10) return ADC_EXTERNALTRIGCONV_T10_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T11_TRGO) && defined(TIM11)
-  if(timer->getHandle()->Instance == TIM11) return ADC_EXTERNALTRIGCONV_T11_TRGO;
+  if(timer->Instance == TIM11) return ADC_EXTERNALTRIGCONV_T11_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T12_TRGO) && defined(TIM12)
-  if(timer->getHandle()->Instance == TIM12) return ADC_EXTERNALTRIGCONV_T12_TRGO;
+  if(timer->Instance == TIM12) return ADC_EXTERNALTRIGCONV_T12_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T13_TRGO) && defined(TIM13)
-  if(timer->getHandle()->Instance == TIM13) return ADC_EXTERNALTRIGCONV_T13_TRGO;
+  if(timer->Instance == TIM13) return ADC_EXTERNALTRIGCONV_T13_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T14_TRGO) && defined(TIM14)
-  if(timer->getHandle()->Instance == TIM14) return ADC_EXTERNALTRIGCONV_T14_TRGO;
+  if(timer->Instance == TIM14) return ADC_EXTERNALTRIGCONV_T14_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T15_TRGO) && defined(TIM15)
-  if(timer->getHandle()->Instance == TIM15) return ADC_EXTERNALTRIGCONV_T15_TRGO;
+  if(timer->Instance == TIM15) return ADC_EXTERNALTRIGCONV_T15_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T16_TRGO) && defined(TIM16)
-  if(timer->getHandle()->Instance == TIM16) return ADC_EXTERNALTRIGCONV_T16_TRGO;
+  if(timer->Instance == TIM16) return ADC_EXTERNALTRIGCONV_T16_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T17_TRGO) && defined(TIM17)
-  if(timer->getHandle()->Instance == TIM17) return ADC_EXTERNALTRIGCONV_T17_TRGO;
+  if(timer->Instance == TIM17) return ADC_EXTERNALTRIGCONV_T17_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T18_TRGO) && defined(TIM18)
-  if(timer->getHandle()->Instance == TIM18) return ADC_EXTERNALTRIGCONV_T18_TRGO;
+  if(timer->Instance == TIM18) return ADC_EXTERNALTRIGCONV_T18_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T19_TRGO) && defined(TIM19)
-  if(timer->getHandle()->Instance == TIM19) return ADC_EXTERNALTRIGCONV_T19_TRGO;
+  if(timer->Instance == TIM19) return ADC_EXTERNALTRIGCONV_T19_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIGCONV_T20_TRGO) && defined(TIM20)
-  if(timer->getHandle()->Instance == TIM20) return ADC_EXTERNALTRIGCONV_T20_TRGO;
+  if(timer->Instance == TIM20) return ADC_EXTERNALTRIGCONV_T20_TRGO;
 #endif
 
 // This should work with C0 G0 G4 H5 H7 L4 L5 MP1 U5 WB WL
 #if defined(ADC_EXTERNALTRIG_T1_TRGO) && defined(TIM1)
-  if(timer->getHandle()->Instance == TIM1) return ADC_EXTERNALTRIG_T1_TRGO;
+  if(timer->Instance == TIM1) return ADC_EXTERNALTRIG_T1_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T2_TRGO) && defined(TIM2)
-  if(timer->getHandle()->Instance == TIM2) return ADC_EXTERNALTRIG_T2_TRGO;
+  if(timer->Instance == TIM2) return ADC_EXTERNALTRIG_T2_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T3_TRGO) && defined(TIM3)
-  if(timer->getHandle()->Instance == TIM3) return ADC_EXTERNALTRIG_T3_TRGO;
+  if(timer->Instance == TIM3) return ADC_EXTERNALTRIG_T3_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T4_TRGO) && defined(TIM4)
-  if(timer->getHandle()->Instance == TIM4) return ADC_EXTERNALTRIG_T4_TRGO;
+  if(timer->Instance == TIM4) return ADC_EXTERNALTRIG_T4_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T5_TRGO) && defined(TIM5)
-  if(timer->getHandle()->Instance == TIM5) return ADC_EXTERNALTRIG_T5_TRGO;
+  if(timer->Instance == TIM5) return ADC_EXTERNALTRIG_T5_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T6_TRGO) && defined(TIM6)
-  if(timer->getHandle()->Instance == TIM6) return ADC_EXTERNALTRIG_T6_TRGO;
+  if(timer->Instance == TIM6) return ADC_EXTERNALTRIG_T6_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T7_TRGO) && defined(TIM7)
-  if(timer->getHandle()->Instance == TIM7) return ADC_EXTERNALTRIG_T7_TRGO;
+  if(timer->Instance == TIM7) return ADC_EXTERNALTRIG_T7_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T8_TRGO) && defined(TIM8)
-  if(timer->getHandle()->Instance == TIM8) return ADC_EXTERNALTRIG_T8_TRGO;
+  if(timer->Instance == TIM8) return ADC_EXTERNALTRIG_T8_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T9_TRGO) && defined(TIM9)
-  if(timer->getHandle()->Instance == TIM9) return ADC_EXTERNALTRIG_T9_TRGO;
+  if(timer->Instance == TIM9) return ADC_EXTERNALTRIG_T9_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T10_TRGO) && defined(TIM10)
-  if(timer->getHandle()->Instance == TIM10) return ADC_EXTERNALTRIG_T10_TRGO;
+  if(timer->Instance == TIM10) return ADC_EXTERNALTRIG_T10_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T11_TRGO) && defined(TIM11)
-  if(timer->getHandle()->Instance == TIM11) return ADC_EXTERNALTRIG_T11_TRGO;
+  if(timer->Instance == TIM11) return ADC_EXTERNALTRIG_T11_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T12_TRGO) && defined(TIM12)
-  if(timer->getHandle()->Instance == TIM12) return ADC_EXTERNALTRIG_T12_TRGO;
+  if(timer->Instance == TIM12) return ADC_EXTERNALTRIG_T12_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T13_TRGO) && defined(TIM13)
-  if(timer->getHandle()->Instance == TIM13) return ADC_EXTERNALTRIG_T13_TRGO;
+  if(timer->Instance == TIM13) return ADC_EXTERNALTRIG_T13_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T14_TRGO) && defined(TIM14)
-  if(timer->getHandle()->Instance == TIM14) return ADC_EXTERNALTRIG_T14_TRGO;
+  if(timer->Instance == TIM14) return ADC_EXTERNALTRIG_T14_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T15_TRGO) && defined(TIM15)
-  if(timer->getHandle()->Instance == TIM15) return ADC_EXTERNALTRIG_T15_TRGO;
+  if(timer->Instance == TIM15) return ADC_EXTERNALTRIG_T15_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T16_TRGO) && defined(TIM16)
-  if(timer->getHandle()->Instance == TIM16) return ADC_EXTERNALTRIG_T16_TRGO;
+  if(timer->Instance == TIM16) return ADC_EXTERNALTRIG_T16_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T17_TRGO) && defined(TIM17)
-  if(timer->getHandle()->Instance == TIM17) return ADC_EXTERNALTRIG_T17_TRGO;
+  if(timer->Instance == TIM17) return ADC_EXTERNALTRIG_T17_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T18_TRGO) && defined(TIM18)
-  if(timer->getHandle()->Instance == TIM18) return ADC_EXTERNALTRIG_T18_TRGO;
+  if(timer->Instance == TIM18) return ADC_EXTERNALTRIG_T18_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T19_TRGO) && defined(TIM19)
-  if(timer->getHandle()->Instance == TIM19) return ADC_EXTERNALTRIG_T19_TRGO;
+  if(timer->Instance == TIM19) return ADC_EXTERNALTRIG_T19_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T20_TRGO) && defined(TIM20)
-  if(timer->getHandle()->Instance == TIM20) return ADC_EXTERNALTRIG_T20_TRGO;
+  if(timer->Instance == TIM20) return ADC_EXTERNALTRIG_T20_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T21_TRGO) && defined(TIM21)
-  if(timer->getHandle()->Instance == TIM21) return ADC_EXTERNALTRIG_T21_TRGO;
+  if(timer->Instance == TIM21) return ADC_EXTERNALTRIG_T21_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T22_TRGO) && defined(TIM22)
-  if(timer->getHandle()->Instance == TIM22) return ADC_EXTERNALTRIG_T22_TRGO;
+  if(timer->Instance == TIM22) return ADC_EXTERNALTRIG_T22_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T23_TRGO) && defined(TIM23)
-  if(timer->getHandle()->Instance == TIM23) return ADC_EXTERNALTRIG_T23_TRGO;
+  if(timer->Instance == TIM23) return ADC_EXTERNALTRIG_T23_TRGO;
 #endif
 
 #if defined(ADC_EXTERNALTRIG_T24_TRGO) && defined(TIM24)
-  if(timer->getHandle()->Instance == TIM24) return ADC_EXTERNALTRIG_T24_TRGO;
+  if(timer->Instance == TIM24) return ADC_EXTERNALTRIG_T24_TRGO;
 #endif
 
   // Return not available if no trigger was found

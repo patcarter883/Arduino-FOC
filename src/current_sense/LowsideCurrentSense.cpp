@@ -86,11 +86,9 @@ void LowsideCurrentSense::calibrateOffsets(){
 
 // read all three phase currents (if possible 2 or 3)
 PhaseCurrent_s LowsideCurrentSense::getPhaseCurrents(){
-    PhaseCurrent_s current;
     _startADC3PinConversionLowSide();
-    current.a = (!_isset(pinA)) ? 0 : (_readADCVoltageLowSide(pinA, params) - offset_ia)*gain_a;// amps
-    current.b = (!_isset(pinB)) ? 0 : (_readADCVoltageLowSide(pinB, params) - offset_ib)*gain_b;// amps
-    current.c = (!_isset(pinC)) ? 0 : (_readADCVoltageLowSide(pinC, params) - offset_ic)*gain_c; // amps
-    phase_currents = current;
-    return current;
+    phase_currents.a = (!_isset(pinA)) ? 0 : (_readADCVoltageLowSide(pinA, params) - offset_ia)*gain_a;// amps
+    phase_currents.b = (!_isset(pinB)) ? 0 : (_readADCVoltageLowSide(pinB, params) - offset_ib)*gain_b;// amps
+    phase_currents.c = (!_isset(pinC)) ? 0 : (_readADCVoltageLowSide(pinC, params) - offset_ic)*gain_c; // amps
+    return phase_currents;
 }
